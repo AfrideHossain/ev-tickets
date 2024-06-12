@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   return (
     <>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center">
-            <h1 className="text-5xl font-bold">Login Now!</h1>
-            <p className="py-2">
-              Please enter your credentials to access your account.
-            </p>
+            <h1 className="text-5xl font-bold">Create new account</h1>
+            <p className="py-2">Create a new account.</p>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
             <div className="flex flex-col w-full card-body border-opacity-50">
@@ -37,7 +35,7 @@ const Login = () => {
                   />
                   <label className="label label-text-alt justify-start gap-1">
                     Don{"'"}t have an account?
-                    <Link to={"/auth/register"} className="link link-hover">
+                    <Link to={"/"} className="link link-hover">
                       Create now!
                     </Link>
                   </label>
@@ -65,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
