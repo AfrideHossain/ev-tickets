@@ -11,7 +11,7 @@ const Login = () => {
               Please enter your credentials to access your account.
             </p>
           </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
+          <div className="card shrink-0 w-full md:w-[384px] shadow-2xl bg-base-300">
             <div className="flex flex-col w-full card-body border-opacity-50">
               <form>
                 <div className="form-control">
@@ -37,7 +37,10 @@ const Login = () => {
                   />
                   <label className="label label-text-alt justify-start gap-1">
                     Don{"'"}t have an account?
-                    <Link to={"/auth/register"} className="link link-hover">
+                    <Link
+                      to={"/auth/register"}
+                      className="link link-hover text-blue-500"
+                    >
                       Create now!
                     </Link>
                   </label>
@@ -48,7 +51,7 @@ const Login = () => {
               </form>
               <div className="divider">OR</div>
               <div className="grid card place-items-center">
-                <Link className="w-full btn text-base-100 bg-white hover:bg-gray-400 gap-3">
+                <Link className="w-full btn text-base hover:bg-gray-300 gap-3">
                   <img
                     src="/images/icons/google.png"
                     alt="Google"
