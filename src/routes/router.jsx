@@ -11,6 +11,7 @@ import AddEvent from "../pages/Events/AddEvent";
 import AdminRoute from "./secure/AdminRoute";
 import EventDetails from "../pages/Events/EventDetails";
 import Bookings from "../pages/Bookings/Bookings";
+import Payment from "../pages/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
           }),
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
       {
         path: "editprofile",
