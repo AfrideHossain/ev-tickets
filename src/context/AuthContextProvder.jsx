@@ -21,6 +21,7 @@ const authProviderGoogle = new GoogleAuthProvider();
 const AuthContextProvider = ({ children }) => {
   // states
   const [user, setUser] = useState();
+  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
 
   // Authentication functions
@@ -48,6 +49,7 @@ const AuthContextProvider = ({ children }) => {
   // observer
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUserData) => {
+      setLoading(true);
       setUser(currentUserData);
       if (currentUserData && currentUserData.email) {
         fetch(`${import.meta.env.VITE_BASE_URL}/jwtSign`, {
@@ -62,6 +64,7 @@ const AuthContextProvider = ({ children }) => {
         })
           .then((res) => res.json())
           .then((data) => {
+            setRole(data.role);
             localStorage.setItem("token", data.token);
           });
       } else {
@@ -77,6 +80,7 @@ const AuthContextProvider = ({ children }) => {
   // context values
   const contextValues = {
     user,
+    role,
     loading,
     userRegisterWithPass,
     userLoginWithPass,

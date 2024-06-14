@@ -3,20 +3,26 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import useAuthContext from "../hooks/useAuthContext";
 
 const HomeLayout = () => {
+  const { role } = useAuthContext();
   const sideBarItem = (
     <>
       <li>
         <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <Link to={"/"}>Profile</Link>
+        <Link to={"/user"}>Profile</Link>
       </li>
       <li>
         <Link to={"/"}>Events</Link>
       </li>
       <li>
-        <Link to={"/"}>Bookings</Link>
+        <Link to={"/bookings"}>Bookings</Link>
       </li>
+      {role === "admin" && (
+        <li>
+          <Link to={"/addevent"}>Add an event</Link>
+        </li>
+      )}
     </>
   );
   // context hook
